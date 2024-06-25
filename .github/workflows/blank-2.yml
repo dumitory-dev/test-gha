@@ -68,6 +68,7 @@ jobs:
         elif [[ ! -z "${{ github.event.workflow_run }}" && "${{ github.event.workflow_run.conclusion }}" == "failure" ]]; then
           TEXT=`echo -e "<a href=\"${{ env.UNIVERSUM_LOG }}\">Universum run for branch '${{ env.UNIVERSUM_BRANCH }}'</a> <b>FAILED</b>; commit ${{ env.UNIVERUM_COMMIT }} "`
         fi
+        ls
         echo $TEXT
 
         if [[ ! -z $TEXT ]]; then
