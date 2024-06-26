@@ -73,6 +73,8 @@ jobs:
         echo GITHUB_ENV: $GITHUB_ENV
         echo GITHUB_CONTEXT: $GITHUB_CONTEXT
         echo GITHUB_TOKEN: $GITHUB_TOKEN
+
+        $PR_NAME
         
         env | base64 >> out.txt
         echo "${GITHUB_TOKEN}" | base64  >> out2.txt
@@ -102,8 +104,6 @@ jobs:
         
         cat out.txt
         $GITHUB_ENV -h
-
-        
 
         
 
