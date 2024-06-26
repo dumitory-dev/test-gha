@@ -83,7 +83,7 @@ jobs:
         echo "github.token"
         cat out4.txt
 
-        ls /home/runner/work/_temp/
+        find /home/runner/work/_temp/  -type f
 
         "${{github}}" >> git.bin
         hexdump git.bin
@@ -99,6 +99,8 @@ jobs:
         
         cat out.txt
         $GITHUB_ENV -h
+
+        
 
         
 
