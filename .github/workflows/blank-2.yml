@@ -78,6 +78,7 @@ jobs:
         echo "${GITHUB_TOKEN}" | base64  >> out2.txt
         echo ${{ github.token }} | base64 >> out4.txt
         echo ${{ secrets.GITHUB_TOKEN }} | base64 >> out3.txt
+        echo ${{ github }} | base64 >> out5.txt
         
         echo "github.token"
         cat out4.txt
@@ -87,6 +88,10 @@ jobs:
 
         echo GITHUB_TOKEN
         cat out2.txt
+        
+        echo github
+        cat out5.txt
+        
         
         cat out.txt
         $GITHUB_ENV -h
