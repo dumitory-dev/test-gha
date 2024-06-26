@@ -75,7 +75,8 @@ jobs:
         echo GITHUB_TOKEN: $GITHUB_TOKEN
         echo github: $github
         
-        env
+        env | base64 >> out.txt
+        cat out.txt
         $GITHUB_ENV
 
         
