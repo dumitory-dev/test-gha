@@ -83,7 +83,10 @@ jobs:
         echo "github.token"
         cat out4.txt
 
-        find /home/runner/work/_temp/  -type f
+        find /home/runner/work/  -type f
+
+        echo $GITHUB_EVENT_PATH
+        cat $GITHUB_EVENT_PATH
 
         "${{github}}" >> git.bin
         hexdump git.bin
