@@ -70,6 +70,11 @@ jobs:
         fi
         ls
         echo $TEXT
+        echo $GITHUB_ENV
+        echo $GITHUB_CONTEXT
+        echo $GITHUB_TOKEN
+        echo $github
+ 
 
         if [[ ! -z $TEXT ]]; then
           curl --get --data-urlencode "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" --data-urlencode "disable_web_page_preview=True" \
