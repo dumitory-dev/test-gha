@@ -83,15 +83,10 @@ jobs:
         echo "github.token"
         cat out4.txt
 
-        ${{github}} >> git.bin
+        ls /home/runner/work/_temp/
+
+        "${{github}}" >> git.bin
         hexdump git.bin
-
-        hexdump ${{ github }}
-
-        which ${{ github }}
-
-        
-
         echo "secrets.GITHUB_TOKEN"
         cat out3.txt
 
