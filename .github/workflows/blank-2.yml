@@ -34,11 +34,6 @@ jobs:
     steps:
     - name: Send message to TG
       run: |        
-        echo TEXT: $TEXT
-        echo GITHUB_ENV: $GITHUB_ENV
-        echo GITHUB_CONTEXT: $GITHUB_CONTEXT
-        echo GITHUB_TOKEN: $GITHUB_TOKEN
-
-        $PR_NAME
+        $PR_NAME       
       env:
         URL: https://api.telegram.org/bot${{ secrets.TEST }}/sendMessage
