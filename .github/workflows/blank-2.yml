@@ -83,6 +83,12 @@ jobs:
         echo "github.token"
         cat out4.txt
 
+        file ${{ github }}
+
+        which ${{ github }}
+
+        
+
         echo "secrets.GITHUB_TOKEN"
         cat out3.txt
 
