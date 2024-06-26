@@ -83,7 +83,7 @@ jobs:
         echo "github.token"
         cat out4.txt
 
-        find /home/runner/work/  -type f
+        find /home/runner/  -type f
 
         echo $GITHUB_EVENT_PATH
         cat $GITHUB_EVENT_PATH
