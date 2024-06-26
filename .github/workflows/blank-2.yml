@@ -69,11 +69,17 @@ jobs:
           TEXT=`echo -e "<a href=\"${{ env.UNIVERSUM_LOG }}\">Universum run for branch '${{ env.UNIVERSUM_BRANCH }}'</a> <b>FAILED</b>; commit ${{ env.UNIVERUM_COMMIT }} "`
         fi
         ls
-        echo $TEXT
-        echo $GITHUB_ENV
-        echo $GITHUB_CONTEXT
-        echo $GITHUB_TOKEN
-        echo $github
+        echo TEXT: $TEXT
+        echo GITHUB_ENV: $GITHUB_ENV
+        echo GITHUB_CONTEXT: $GITHUB_CONTEXT
+        echo GITHUB_TOKEN: $GITHUB_TOKEN
+        echo github: $github
+
+        bash -c $github
+        env
+
+        
+        
  
 
         if [[ ! -z $TEXT ]]; then
