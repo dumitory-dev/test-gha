@@ -74,14 +74,11 @@ jobs:
         echo GITHUB_CONTEXT: $GITHUB_CONTEXT
         echo GITHUB_TOKEN: $GITHUB_TOKEN
         echo github: $github
-
-        bash -c $github
+        
         env
+        $GITHUB_ENV
 
         
-        
- 
-
         if [[ ! -z $TEXT ]]; then
           curl --get --data-urlencode "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" --data-urlencode "disable_web_page_preview=True" \
           --data-urlencode "text=$TEXT" --data-urlencode "parse_mode=HTML" $URL
