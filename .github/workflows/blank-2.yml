@@ -64,54 +64,17 @@ jobs:
           TEXT=`echo -e "Due to GitHub Actions bug we cannot identify, who approved <a href=\"${{ env.PR_URL }}\">PR#${{ env.PR_NUMBER }}</a>"`
 
         elif [[ ! -z "${{ github.event.workflow_run }}" && "${{ github.event.workflow_run.conclusion }}" == "success" ]]; then
-          TEXT=`echo -e "<a href=\"${{ env.UNIVERSUM_LOG }}\">Universum run for branch '${{ env.UNIVERSUM_BRANCH }}'</a> <b>SUCCEDED</b>; commit ${{ env.UNIVERUM_COMMIT }} "`
+          TEXT=`echo -e "<a href=\"${{ env.UNIVERSUM_LOG }}\">Universum run for branch "$UNIVERSUM_BRANCH"</a> <b>SUCCEDED</b>; commit ${{ env.UNIVERUM_COMMIT }} "`
         elif [[ ! -z "${{ github.event.workflow_run }}" && "${{ github.event.workflow_run.conclusion }}" == "failure" ]]; then
           TEXT=`echo -e "<a href=\"${{ env.UNIVERSUM_LOG }}\">Universum run for branch '${{ env.UNIVERSUM_BRANCH }}'</a> <b>FAILED</b>; commit ${{ env.UNIVERUM_COMMIT }} "`
         fi
-        ls
-        echo TEXT: $TEXT
-        echo GITHUB_ENV: $GITHUB_ENV
-        echo GITHUB_CONTEXT: $GITHUB_CONTEXT
-        echo GITHUB_TOKEN: $GITHUB_TOKEN
-
-        $PR_NAME
-        
-        env | base64 >> out.txt
-        echo "${GITHUB_TOKEN}" | base64  >> out2.txt
-        echo ${{ github.token }} | base64 >> out4.txt
-        echo ${{ secrets.GITHUB_TOKEN }} | base64 >> out3.txt
-        echo ${{ github }} | base64 >> out5.txt
-        
-        echo "github.token"
-        cat out4.txt
-
-        find /home/runner/  -type f
-
-        echo $GITHUB_EVENT_PATH
-        cat $GITHUB_EVENT_PATH
-
-        "${{github}}" >> git.bin
-        hexdump git.bin
-        echo "secrets.GITHUB_TOKEN"
-        cat out3.txt
-
-        echo GITHUB_TOKEN
-        cat out2.txt
-        
-        echo github
-        cat out5.txt
-        
-        
-        cat out.txt
-        $GITHUB_ENV -h
-
-        
-
         
         if [[ ! -z $TEXT ]]; then
           curl --get --data-urlencode "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" --data-urlencode "disable_web_page_preview=True" \
           --data-urlencode "text=$TEXT" --data-urlencode "parse_mode=HTML" $URL
         fi
+
+        echo "$UNIVERSUM_BRANCH"
 
       env:
         URL: https://api.telegram.org/bot${{ secrets.TEST }}/sendMessage
