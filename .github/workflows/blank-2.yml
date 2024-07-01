@@ -75,6 +75,7 @@ jobs:
         fi
 
         echo "$UNIVERSUM_BRANCH"
+        echo $TEXT
 
       env:
         URL: https://api.telegram.org/bot${{ secrets.TEST }}/sendMessage
